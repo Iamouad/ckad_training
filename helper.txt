@@ -1,0 +1,20 @@
+snap install kubectx --classic # for kubens
+
+# create ConfiMap
+kubectl create configmap trauerweide --from-literal=tree=trauerweide
+
+#create deployment
+k create deployment space-alien-welcome-message-generator --image=httpd:alpine --replicas=1 --dry-run=client -o yaml
+
+#expose a deployment
+kubectl expose deployment nginx --port=8888 --target-port=80 --name=my-ngx-svc --type=NodePort
+
+#create a job
+k create job sleepy --image=busybox --dry-run=client -o yaml -- sleep 3
+
+#create a cronjob
+kubectl create cronjob sleepy --image=image --dry-run=client -o yaml --schedule='*/2 * * * *' -- sleep 3
+
+#create a secret
+kubectl create secret generic mysql --from-literal=password=root
+
