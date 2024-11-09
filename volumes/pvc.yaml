@@ -12,6 +12,10 @@ spec:
 ....
 spec:
     containers:
+    - name: ctr
+      volumeMounts:
+      - mountPath: /test
+        name: test-volume
 ....
     volumes:
         - name: test-volume
