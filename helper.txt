@@ -25,3 +25,9 @@ kubectl set image deploy mydeploy myapp=myapp:2.9 --record
 kubectl rollout history deployment/mydeploy "--revision=1"
 #rollout undo
 kubectl rollout undo deployment/mydeploy "--to-revision=2"
+
+#create a token for a service account
+k create toke my-sa
+
+#manage services
+kubectl expose deployment/nginx --port=<ClusterIpPort> --targetPort=<container-port| default(port)> --type=NodePort
