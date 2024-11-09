@@ -18,3 +18,10 @@ kubectl create cronjob sleepy --image=image --dry-run=client -o yaml --schedule=
 #create a secret
 kubectl create secret generic mysql --from-literal=password=root
 
+#rollback deployment
+kubectl set image deploy mydeploy myapp=myapp:2.9 --record
+# adds an annotation "kubernetes.io/change-cause"
+#rollout history
+kubectl rollout history deployment/mydeploy "--revision=1"
+#rollout undo
+kubectl rollout undo deployment/mydeploy "--to-revision=2"
