@@ -1,0 +1,7 @@
+spec:
+  clusterIP: 10.108.95.67
+  ports:
+  - name: "443"
+    port: 443
+    protocol: TCP
+    targetPort: 443

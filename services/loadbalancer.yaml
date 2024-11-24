@@ -1,0 +1,6 @@
+type: LoadBalancer
+loadBalancerIP: 12.45.105.12
+clusterIP: 10.5.31.33
+ports:
+- protocol: TCP
+  port: 80

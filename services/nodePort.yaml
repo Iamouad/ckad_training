@@ -1,0 +1,12 @@
+spec:
+  clusterIP: 10.97.191.46
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 31070
+    port: 80
+    protocol: TCP
+    targetPort: 8000
+  selector:
+    io.kompose.service: nginx
+  sessionAffinity: None
+  type: NodePort
